@@ -8,10 +8,10 @@
 
 **style.css file**
 
-1.  Basic indetifiers
+1.  Basic identifiers
 2.  Basic css rules
-3.  Choose a color pallete from [colorhunt](https://colorhunt.co) or choose [this](https://colorhunt.co/palette/ffe3a9ffc3c3ff8c8cff5d5d) one.
-4.  Style the html structure based on the demo layout and the color pallete.
+3.  Choose a color pallet from [colorhunt](https://colorhunt.co) or choose [this](https://colorhunt.co/palette/ffe3a9ffc3c3ff8c8cff5d5d) one.
+4.  Style the html structure based on the demo layout and the color pallet.
 
 **script.js file**
 
