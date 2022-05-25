@@ -1,0 +1,18 @@
+.content__dog-viewer__container {
+  min-height: 500px;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content__dog-viewer__container span {
+  color: #ff5d5d;
+}
+
+.content__dog-viewer__img {
+  flex: 1;
+  object-fit: cover;
+  border-radius: 10px;
+  overflow: hidden;
+}

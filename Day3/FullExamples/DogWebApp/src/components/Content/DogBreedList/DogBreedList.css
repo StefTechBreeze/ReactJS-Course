@@ -1,0 +1,17 @@
+.content__dog-list__container {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+
+  padding: 5px;
+}
+
+.content__dog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow: auto;
+  flex: 1;
+  padding-right: 5px;
+}

@@ -1,0 +1,8 @@
+.checkbox-list-item {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-list-item input {
+  margin-right: 20px;
+}

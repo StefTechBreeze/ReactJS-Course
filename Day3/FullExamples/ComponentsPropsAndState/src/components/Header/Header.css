@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 20px;
+  background: #ff5d5d;
+}
+.header p {
+  text-transform: uppercase;
+  color: #ffe3a9;
+  font-weight: bold;
+}
