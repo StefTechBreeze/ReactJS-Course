@@ -26,11 +26,13 @@ export const DogBreedList = (props) => {
       });
   }, []);
 
-  useEffect(() => {
-    console.log("did update");
-    setBreedIndex(selectedBreedIndex + 1);
-  });
+  // triggers for every internal or external update
+  // useEffect(() => {
+  //   console.log("did update");
+  //   setBreedIndex(selectedBreedIndex + 1);
+  // });
 
+  // triggers only if selectedBreedIndex changes values from one render to another
   useEffect(() => {
     console.log("did update with dependencies");
   }, [selectedBreedIndex]);

@@ -20,6 +20,7 @@ export const RandomDogBreedViewer = () => {
         Click to see a <span>random dog</span>
       </button>
       <img
+        alt=""
         className="content__random-dog-viewer__img"
         src={
           currentDogUrl

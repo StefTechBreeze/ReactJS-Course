@@ -6,7 +6,11 @@ export const Footer = () => {
   return (
     <footer>
       <p>Please give credit to:</p>
-      <a target="_blank" href="https://dog.ceo/dog-api/documentation/">
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href="https://dog.ceo/dog-api/documentation/"
+      >
         Dog API
       </a>
     </footer>
