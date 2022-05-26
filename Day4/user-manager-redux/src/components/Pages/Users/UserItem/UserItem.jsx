@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { AppContext } from "../../../../App";
 import "./UserItem.css";
 
 export const UserItem = ({ first_name, last_name, email }) => {
+  const { dispatch } = useContext(AppContext);
+
   return (
     <div className="user-item">
       <div className="user-item__details">
@@ -14,7 +18,15 @@ export const UserItem = ({ first_name, last_name, email }) => {
         </div>
       </div>
       <div className="user-item__actions">
-        <img alt="" src="/svg/edit.svg" />
+        <img
+          alt=""
+          src="/svg/edit.svg"
+          onClick={() => {
+            dispatch({
+              type: "open-update-pup-up",
+            });
+          }}
+        />
         <img alt="" src="/svg/bin.svg" />
       </div>
     </div>

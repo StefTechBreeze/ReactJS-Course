@@ -1,8 +1,9 @@
 import { Navigation } from "./Navigation/Navigation";
 
-import "./Header.css";
 import { useContext } from "react";
 import { AppContext } from "../../App";
+
+import "./Header.css";
 
 export const Header = () => {
   const { darkTheme, setDarkTheme } = useContext(AppContext);

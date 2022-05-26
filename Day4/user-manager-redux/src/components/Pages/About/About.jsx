@@ -1,4 +1,9 @@
+import { useLocation } from "react-router-dom";
+
 export const About = () => {
+  const location = useLocation();
+  console.log(location);
+
   return (
     <section className="about-page page">
       <h1>About Us</h1>

@@ -1,9 +1,19 @@
+import { useContext } from "react";
+import { AppContext } from "../../App";
 import "./EditUserModal.css";
 
 export const EditUserModal = () => {
-  return (
+  const { state, dispatch } = useContext(AppContext);
+
+  return state.showUpdatePopUp ? (
     <div className="edit-user-modal">
-      <form className="edit-user-modal__content">
+      <form
+        className="edit-user-modal__content"
+        onSubmit={(event) => {
+          event.preventDefault();
+          dispatch({ type: "close-update-pup-up" });
+        }}
+      >
         <div className="edit-user-modal__field">
           <label>First Name:</label>
           <input />
@@ -19,5 +29,5 @@ export const EditUserModal = () => {
         <button type="submit">UPDATE USER</button>
       </form>
     </div>
-  );
+  ) : null;
 };

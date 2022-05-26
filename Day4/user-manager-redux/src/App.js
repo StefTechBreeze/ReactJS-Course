@@ -4,29 +4,51 @@ import { Footer } from "./components/Footer/Footer";
 import "./App.css";
 import { Main } from "./components/Main/Main";
 import { EditUserModal } from "./components/EditUserModal/EditUserModal";
-import { createContext, useState } from "react";
+import { createContext, useReducer, useState } from "react";
+import { BrowserRouter } from "react-router-dom";
 
 export const AppContext = createContext();
 
+const initialState = {
+  showUpdatePopUp: false,
+};
+
+const reducer = (state, action) => {
+  console.log("action", action);
+
+  switch (action.type) {
+    case "open-update-pup-up":
+      return { showUpdatePopUp: true };
+    case "close-update-pup-up":
+      return { showUpdatePopUp: false };
+    default:
+      return state;
+  }
+};
+
 function App() {
-  const [currentPage, setCurrentPage] = useState("contact");
-  const [darkTheme, setDarkTheme] = useState(true);
+  const [darkTheme, setDarkTheme] = useState(false);
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  console.log("state", state);
 
   return (
     <AppContext.Provider
       value={{
-        currentPage,
-        setCurrentPage,
         darkTheme,
         setDarkTheme,
+        state,
+        dispatch,
       }}
     >
-      <div className="App">
-        <Header />
-        <Main />
-        <Footer />
-        {/* <EditUserModal /> */}
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <Main />
+          <Footer />
+          <EditUserModal />
+        </div>
+      </BrowserRouter>
     </AppContext.Provider>
   );
 }
