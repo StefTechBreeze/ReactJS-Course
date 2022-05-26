@@ -12,6 +12,8 @@ const groceries = [
 export const CheckboxList = () => {
   const [selectedItems, setSelectedItems] = useState([]);
 
+  console.log(selectedItems);
+
   return (
     <div className="checkbox-list">
       <h3>This is a list of groceries checkbox items</h3>

@@ -12,3 +12,13 @@
   background: black;
   color: white;
 }
+
+.app-navigation__item--dark-theme {
+  border: 1px solid white;
+  color: white;
+}
+
+.app-navigation__item--active.app-navigation__item--dark-theme {
+  background: white;
+  color: black;
+}

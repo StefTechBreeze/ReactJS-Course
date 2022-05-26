@@ -17,12 +17,15 @@ export const Content = () => {
     <div className="content">
       <DogBreedList setDogViewUrl={setDogViewUrl} />
       <DogBreedViewer dogViewUrl={dogViewUrl} />
-      {/* <RandomDogBreedViewer /> */}
+      {/* <RandomDogBreedViewer />
       {/* <CheckboxList /> */}
       {/* <ClickCounter /> */}
-      {/* <Tabs tabItems={["Tab1", "Tab2"]}>
+      {/* <Tabs tabItems={["Tab1", "Tab2", "Tab3"]}>
         <p>This is tab 1</p>
         <p>This is tab 2</p>
+        <div>
+          <button>Tab 3</button>
+        </div>
       </Tabs> */}
     </div>
   );
