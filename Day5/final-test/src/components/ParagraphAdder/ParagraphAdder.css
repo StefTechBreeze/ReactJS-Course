@@ -1,0 +1,8 @@
+.paragraph-adder {
+  display: flex;
+  flex-direction: column;
+}
+
+.paragraph-adder p {
+  margin: 5px;
+}

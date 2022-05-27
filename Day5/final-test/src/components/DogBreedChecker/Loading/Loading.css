@@ -1,0 +1,15 @@
+@keyframes rotate {
+  from {
+    transform: translateY(-50%) rotate(0);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.dog-breed-checker .loading {
+  margin-top: 50px;
+  height: 30px;
+  animation: rotate 2s linear infinite;
+}

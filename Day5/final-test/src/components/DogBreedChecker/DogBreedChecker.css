@@ -1,0 +1,8 @@
+.dog-breed-checker {
+  flex-direction: column;
+}
+
+.dog-breed-checker img {
+  height: 50px;
+  margin-top: 20px;
+}

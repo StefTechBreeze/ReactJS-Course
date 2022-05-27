@@ -1,0 +1,24 @@
+.app-navigation__item {
+  text-decoration: none;
+  color: black;
+  border: 1px solid lightgrey;
+  width: 100px;
+  text-align: center;
+  padding: 15px 0px;
+  border-radius: 10px;
+}
+
+.app-navigation__item--active {
+  background: black;
+  color: white;
+}
+
+.app-navigation__item--dark-theme {
+  border: 1px solid white;
+  color: white;
+}
+
+.app-navigation__item--active.app-navigation__item--dark-theme {
+  background: white;
+  color: black;
+}

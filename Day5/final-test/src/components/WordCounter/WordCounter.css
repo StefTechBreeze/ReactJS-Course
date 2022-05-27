@@ -1,0 +1,9 @@
+.words-counter {
+  display: flex;
+  flex-direction: column;
+}
+
+.words-counter textarea {
+  width: 200px;
+  height: 200px;
+}

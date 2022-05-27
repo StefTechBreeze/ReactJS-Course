@@ -1,0 +1,39 @@
+.color-picker {
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.color-picker_list {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.color-picker_item {
+  padding: 3px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  margin: auto;
+}
+
+.color-picker_item--selected {
+  border: 2px solid lightgray;
+  border-radius: 4px;
+}
+
+.color-picker_item > div {
+  width: 30px;
+  height: 30px;
+}
+
+.color-picker_item__current {
+  display: flex;
+  margin-right: auto;
+}
+
+.color-picker_item__current .color-picker_item > div {
+  width: 60px;
+  height: 60px;
+}
