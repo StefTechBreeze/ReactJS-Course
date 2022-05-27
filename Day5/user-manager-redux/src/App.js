@@ -13,8 +13,8 @@ const initialState = {
   showUpdatePopUp: false,
   currentSelectedUser: {
     id: null,
-    lastName: "",
-    firstName: "",
+    last_name: "",
+    first_name: "",
     email: "",
   },
   userList: [
@@ -57,6 +57,27 @@ const reducer = (state, action) => {
         currentSelectedUser: { ...initialState.currentSelectedUser },
       };
 
+    case "update-user":
+      return {
+        ...state,
+        userList: state.userList.map((user) => {
+          if (user.id === state.currentSelectedUser.id) {
+            return {
+              ...state.currentSelectedUser,
+            };
+          }
+
+          return user;
+        }),
+        showUpdatePopUp: false,
+        currentSelectedUser: { ...initialState.currentSelectedUser },
+      };
+
+    case "remove-user":
+      return {
+        ...state,
+        userList: state.userList.filter((user) => user.id !== action.payload),
+      };
     default:
       return state;
   }

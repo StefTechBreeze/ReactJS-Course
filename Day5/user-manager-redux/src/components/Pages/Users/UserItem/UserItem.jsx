@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppContext } from "../../../../App";
 import "./UserItem.css";
 
-export const UserItem = ({ first_name, last_name, email }) => {
+export const UserItem = ({ id, first_name, last_name, email }) => {
   const { dispatch } = useContext(AppContext);
 
   return (
@@ -25,9 +25,27 @@ export const UserItem = ({ first_name, last_name, email }) => {
             dispatch({
               type: "open-update-pup-up",
             });
+            dispatch({
+              type: "set-current-selected-user-values",
+              payload: {
+                id,
+                first_name,
+                last_name,
+                email,
+              },
+            });
           }}
         />
-        <img alt="" src="/svg/bin.svg" />
+        <img
+          alt=""
+          src="/svg/bin.svg"
+          onClick={() => {
+            dispatch({
+              type: "remove-user",
+              payload: id,
+            });
+          }}
+        />
       </div>
     </div>
   );
