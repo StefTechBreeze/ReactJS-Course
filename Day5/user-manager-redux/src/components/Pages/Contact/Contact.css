@@ -1,0 +1,33 @@
+.contact-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-page form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.contact-page form input,
+.contact-page form textarea {
+  border: 1px solid lightgray;
+  font-size: 20px;
+  height: 40px;
+  border-radius: 8px;
+  padding: 0px 10px;
+}
+
+.contact-page form textarea {
+  flex: 1;
+}
+
+.contact-page form button {
+  background: grey;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  cursor: pointer;
+}
