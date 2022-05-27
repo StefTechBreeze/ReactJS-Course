@@ -11,6 +11,26 @@ export const AppContext = createContext();
 
 const initialState = {
   showUpdatePopUp: false,
+  currentSelectedUser: {
+    id: null,
+    lastName: "",
+    firstName: "",
+    email: "",
+  },
+  userList: [
+    {
+      id: 1,
+      first_name: "Stefan",
+      last_name: "Radusi",
+      email: "radusi.stefan@gmail.com",
+    },
+    {
+      id: 2,
+      first_name: "Corina",
+      last_name: "rus",
+      email: "rus.corina@gmail.com",
+    },
+  ],
 };
 
 const reducer = (state, action) => {
@@ -18,9 +38,25 @@ const reducer = (state, action) => {
 
   switch (action.type) {
     case "open-update-pup-up":
-      return { showUpdatePopUp: true };
+      return { ...state, showUpdatePopUp: true };
     case "close-update-pup-up":
-      return { showUpdatePopUp: false };
+      return { ...state, showUpdatePopUp: false };
+    case "set-current-selected-user-values":
+      return {
+        ...state,
+        currentSelectedUser: action.payload,
+      };
+    case "create-user":
+      return {
+        ...state,
+        userList: [
+          ...state.userList,
+          { ...state.currentSelectedUser, id: Number(new Date()) },
+        ],
+        showUpdatePopUp: false,
+        currentSelectedUser: { ...initialState.currentSelectedUser },
+      };
+
     default:
       return state;
   }
