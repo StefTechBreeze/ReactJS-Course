@@ -7,6 +7,7 @@ export const ParagraphAdder = () => {
 
   return (
     <div className="paragraph-adder component">
+      <h1>Ovidiu</h1>
       <input
         placeholder="add paragraph"
         onKeyDown={(event) => {

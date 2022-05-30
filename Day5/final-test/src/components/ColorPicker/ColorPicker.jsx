@@ -9,6 +9,7 @@ export const ColorPicker = () => {
 
   return (
     <div className="color-picker component">
+      <h1>Andreea</h1>
       <div className="color-picker_list">
         {colors.map((color) => {
           return (

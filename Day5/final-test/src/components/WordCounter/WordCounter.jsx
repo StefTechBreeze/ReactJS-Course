@@ -7,6 +7,7 @@ export const WordCounter = () => {
 
   return (
     <div className="words-counter component">
+      <h1>Daniel + Bogdan</h1>
       <textarea
         onChange={(event) => {
           setNumOfWords(event.target.value.split(" ").length);

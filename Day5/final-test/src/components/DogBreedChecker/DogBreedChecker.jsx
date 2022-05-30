@@ -27,6 +27,7 @@ export const DogBreedChecker = () => {
 
   return (
     <div className="dog-breed-checker component">
+      <h1>Gabi</h1>
       <p>Type a dog breed and check</p>
       <input onKeyDown={checkBreed} />
       {checked === null ? null : checked ? (

@@ -27,6 +27,7 @@ export const CirclesGame = () => {
 
   return (
     <div className="circles-game component">
+      <h1>Stefan</h1>
       <div className="colors-container">
         <div className="left-color" style={{ background: leftColor }} />
         <div className="right-color" style={{ background: rightColor }} />
