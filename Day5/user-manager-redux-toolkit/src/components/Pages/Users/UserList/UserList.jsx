@@ -18,6 +18,7 @@ export const UserList = () => {
         dispatch(setUsers(users));
       })
       .finally(() => dispatch(hide()));
+    // eslint-disable-next-line
   }, []);
 
   return (
