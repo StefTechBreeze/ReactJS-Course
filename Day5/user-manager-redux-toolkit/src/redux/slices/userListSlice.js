@@ -1,30 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = [
-  {
-    id: 1,
-    first_name: "Stefan",
-    last_name: "Radusi",
-    email: "radusi.stefan@gmail.com",
-  },
-  {
-    id: 2,
-    first_name: "Corina",
-    last_name: "rus",
-    email: "rus.corina@gmail.com",
-  },
-];
+const initialState = [];
 
-export const counterSlice = createSlice({
+export const userListSlice = createSlice({
   name: "userList",
   initialState,
   reducers: {
-    // increment: (state) => {
-    //   state.value += 1;
-    // },
+    setUsers(_, action) {
+      return action.payload;
+    },
+    removeUser(state, action) {
+      const { payload } = action;
+
+      return state.filter((user) => user.id !== payload);
+    },
+    addUser(state, action) {
+      const { payload } = action;
+      state.push(payload);
+    },
+    updateUser(state, action) {
+      const { payload } = action;
+      const user = state.find((user) => user.id === payload.id);
+      if (user) {
+        for (const key of Object.keys(user)) {
+          user[key] = payload[key];
+        }
+      }
+    },
   },
 });
 
-// export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { setUsers, removeUser, addUser, updateUser } =
+  userListSlice.actions;
 
-export default counterSlice.reducer;
+export default userListSlice.reducer;

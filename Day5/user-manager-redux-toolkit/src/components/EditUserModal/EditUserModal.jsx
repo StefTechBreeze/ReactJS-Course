@@ -1,10 +1,23 @@
-import { useContext, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser as addUserApi, updateUser as updateUserApi } from "../../api";
+import {
+  resetCurrentUser,
+  setField,
+} from "../../redux/slices/currentUserSlice";
+import { hide } from "../../redux/slices/popUpSlice";
+import { addUser, updateUser } from "../../redux/slices/userListSlice";
+import {
+  show as showLoading,
+  hide as hideLoading,
+} from "../../redux/slices/loadingSlice";
+
 import "./EditUserModal.css";
 
 export const EditUserModal = () => {
+  const dispatch = useDispatch();
   const show = useSelector((state) => state.popUp.show);
-  const { id, last_name, first_name, email } = {};
+  const { id, last_name, first_name, email } =
+    useSelector((state) => state.currentUser) || {};
 
   return show ? (
     <div className="edit-user-modal">
@@ -13,11 +26,23 @@ export const EditUserModal = () => {
         onSubmit={(event) => {
           console.log(event);
           event.preventDefault();
+          const payload = { last_name, first_name, email };
+          dispatch(showLoading());
           if (id) {
-            // dispatch({ type: "update-user" });
+            updateUserApi({ ...payload, id })
+              .then(() => {
+                dispatch(updateUser({ ...payload, id }));
+              })
+              .finally(() => dispatch(hideLoading()));
           } else {
-            // dispatch({ type: "create-user" });
+            addUserApi(payload)
+              .then(({ id }) => {
+                dispatch(addUser({ ...payload, id }));
+              })
+              .finally(() => dispatch(hideLoading()));
           }
+          dispatch(hide());
+          dispatch(resetCurrentUser());
         }}
       >
         <div className="edit-user-modal__field">
@@ -26,13 +51,12 @@ export const EditUserModal = () => {
             required
             value={first_name}
             onChange={(event) => {
-              // dispatch({
-              //   type: "set-current-selected-user-values",
-              //   payload: {
-              //     ...state.currentSelectedUser,
-              //     first_name: event.target.value,
-              //   },
-              // });
+              dispatch(
+                setField({
+                  name: "first_name",
+                  value: event.target.value,
+                })
+              );
             }}
           />
         </div>
@@ -42,13 +66,12 @@ export const EditUserModal = () => {
             required
             value={last_name}
             onChange={(event) => {
-              // dispatch({
-              //   type: "set-current-selected-user-values",
-              //   payload: {
-              //     ...state.currentSelectedUser,
-              //     last_name: event.target.value,
-              //   },
-              // });
+              dispatch(
+                setField({
+                  name: "last_name",
+                  value: event.target.value,
+                })
+              );
             }}
           />
         </div>
@@ -59,13 +82,12 @@ export const EditUserModal = () => {
             value={email}
             type="email"
             onChange={(event) => {
-              // dispatch({
-              //   type: "set-current-selected-user-values",
-              //   payload: {
-              //     ...state.currentSelectedUser,
-              //     email: event.target.value,
-              //   },
-              // });
+              dispatch(
+                setField({
+                  name: "email",
+                  value: event.target.value,
+                })
+              );
             }}
           />
         </div>

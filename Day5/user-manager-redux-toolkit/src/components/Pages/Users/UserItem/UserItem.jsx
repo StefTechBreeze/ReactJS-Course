@@ -1,9 +1,17 @@
-import { useContext } from "react";
-import { AppContext } from "../../../../App";
+import { useDispatch } from "react-redux";
+import { setCurrentUser } from "../../../../redux/slices/currentUserSlice";
+import { show as showPopUp } from "../../../../redux/slices/popUpSlice";
+import {
+  show as showLoading,
+  hide as hideLoading,
+} from "../../../../redux/slices/loadingSlice";
+import { removeUser } from "../../../../redux/slices/userListSlice";
+import { removeUser as removeUserApi } from "../../../../api";
+
 import "./UserItem.css";
 
 export const UserItem = ({ id, first_name, last_name, email }) => {
-  const { dispatch } = useContext(AppContext);
+  const dispatch = useDispatch();
 
   return (
     <div className="user-item">
@@ -22,28 +30,18 @@ export const UserItem = ({ id, first_name, last_name, email }) => {
           alt=""
           src="/svg/edit.svg"
           onClick={() => {
-            dispatch({
-              type: "open-update-pup-up",
-            });
-            dispatch({
-              type: "set-current-selected-user-values",
-              payload: {
-                id,
-                first_name,
-                last_name,
-                email,
-              },
-            });
+            dispatch(showPopUp());
+            dispatch(setCurrentUser({ id, first_name, last_name, email }));
           }}
         />
         <img
           alt=""
           src="/svg/bin.svg"
           onClick={() => {
-            dispatch({
-              type: "remove-user",
-              payload: id,
-            });
+            dispatch(showLoading());
+            removeUserApi(id)
+              .then(() => dispatch(removeUser(id)))
+              .finally(() => dispatch(hideLoading()));
           }}
         />
       </div>
